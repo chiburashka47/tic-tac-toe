@@ -1,0 +1,14 @@
+.mainPage {
+  @include flex-column();
+  width: 100vw;
+  height: 100vh;
+
+  &__btn {
+    padding: 0;
+    height: 60px;
+    width: 300px;
+    @include btn();
+    margin: 10px;
+    font-size: 16px;
+  }
+}
