@@ -1,7 +1,25 @@
 .game {
+  &__nav {
+    @include flex-row();
+    padding: 100px;
+
+    &__btn {
+      @include btn();
+      height: 40px;
+      width: 160px;
+      margin: 0 40px;
+    }
+  }
+
+  &__status {
+    @include flex-row();
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 0;
+  }
+
   &__board {
     @include flex-column();
-    height: 100vh;
 
     &__row {
       @include flex-row();
