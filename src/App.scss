@@ -1,0 +1,42 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  background-color: aliceblue;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@mixin btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #cccccc;
+  color: white;
+  cursor: pointer;
+}
+
+@import "./Components/game/style/index.scss";
+@import "./Components/mainPage/style/index.scss";
+@import "./Components/backBtn/style/index.scss";
+@import "./Components/setting/style/index.scss";
