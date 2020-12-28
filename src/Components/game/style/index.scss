@@ -8,6 +8,13 @@
       height: 40px;
       width: 160px;
       margin: 0 40px;
+      cursor: context-menu;
+    }
+
+    .active {
+      color: black;
+      background-color: #9da073;
+      cursor: pointer;
     }
   }
 
