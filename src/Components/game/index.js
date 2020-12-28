@@ -242,7 +242,7 @@ export default class Game extends React.Component {
         </div>
         <div className="game__status">
           {this.state.winner
-            ? `${this.state.winner} is won!!!`
+            ? `${this.state.winner} is the winner!!!`
             : `Turn ${this.state.xIsNext ? "X" : "0"}`}
         </div>
         <div className="game__board">
