@@ -10,7 +10,7 @@ export default function ListMenu({ setItem, tittle, items, data }) {
             <div
               key={index}
               onClick={(event) => {
-                setItem(event.target, index);
+                setItem(index);
               }}
               className={`setting__row__container__elem ${
                 data === index ? "active" : " "
