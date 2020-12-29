@@ -4,36 +4,33 @@ import ListMenu from "./components/listMenu";
 import robotSound from "../game/public/robot.mp3";
 
 export default class Setting extends Component {
-  choiseBoard = (item, size) => {
-    const container = document.querySelectorAll(".setting__row__container")[0];
-    container
-      .querySelector(".setting__row__container__elem.active")
-      .classList.remove("active");
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: JSON.parse(window.localStorage.getItem("data")),
+    };
+  }
 
-    item.classList.add("active");
-    const data = JSON.parse(window.localStorage.getItem("data"));
+  choiseBoard = (size) => {
+    const data = this.state.data;
+
     data.setting.boardSize = size;
+    this.setState({ data });
     window.localStorage.setItem("data", JSON.stringify(data));
   };
 
-  choisePlayer = (item, opponent) => {
-    const container = document.querySelectorAll(".setting__row__container")[1],
-      audio = new Audio(robotSound);
+  choisePlayer = (opponent) => {
+    const audio = new Audio(robotSound),
+      data = this.state.data;
+
     if (opponent === 1) audio.play();
-    container
-      .querySelector(".setting__row__container__elem.active")
-      .classList.remove("active");
-
-    item.classList.add("active");
-    const data = JSON.parse(window.localStorage.getItem("data"));
     data.setting.opponent = opponent;
+    this.setState({ data });
     window.localStorage.setItem("data", JSON.stringify(data));
   };
-
-  data = JSON.parse(window.localStorage.getItem("data")).setting;
-  list = document.querySelectorAll(".setting__row__container__elem");
 
   render() {
+    const setting = this.state.data.setting;
     return (
       <>
         <div className="setting">
@@ -43,13 +40,13 @@ export default class Setting extends Component {
             setItem={this.choiseBoard}
             tittle="Board size:"
             items={["3x3", "4x4", "5x5"]}
-            data={this.data.boardSize}
+            data={setting.boardSize}
           />
           <ListMenu
             setItem={this.choisePlayer}
             tittle="Opponent:"
             items={["Player", "SkyNet"]}
-            data={this.data.opponent}
+            data={setting.opponent}
           />
         </div>
       </>

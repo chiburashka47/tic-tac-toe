@@ -157,7 +157,7 @@ export default class Game extends React.Component {
     });
   }
 
-  render() {
+  componentDidMount() {
     let playPromise = audio.play();
 
     if (playPromise !== undefined) {
@@ -168,7 +168,9 @@ export default class Game extends React.Component {
       });
     }
     audio.addEventListener("ended", () => audio.play());
+  }
 
+  render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
 
